@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
@@ -208,7 +209,7 @@
     <h1 style="color: #00d2ff;">Toronto FinOps Meetup</h1>
     <p class="subtitle">Reserve your spot. We'll handle the rest.</p>
 
-    <form id="reg-form" action="https://formspree.io/f/xreavpvp" method="POST">
+    <form id="reg-form" action="https://finops-meetup-register.vectorbrad.workers.dev" method="POST">
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="First and last name" required />
@@ -225,6 +226,9 @@
         <label for="phone">Emergency Phone</label>
         <input type="tel" id="phone" name="phone" placeholder="+1 (416) 000-0000" />
       </div>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAD2v3F_BanhyIXwX" style="margin-top:20px;"></div>
 
       <button type="submit" class="submit-btn">Register</button>
     </form>
